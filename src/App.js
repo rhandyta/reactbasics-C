@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
 import Card from "./Components/Card";
-import Counter from "./Components/Counter";
+import Counter from "./Components/useState/Counter";
+import UseStateObject from "./Components/useState/UseStateObject";
 
 function App() {
     const hello = () => {
@@ -10,7 +11,7 @@ function App() {
 
     return (
         <>
-            <Counter />
+            <UseStateObject />
         </>
     );
 }
