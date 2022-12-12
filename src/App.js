@@ -1,26 +1,26 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
-import Card from './Components/Card';
+import Card from "./Components/Card";
+import Counter from "./Components/Counter";
 
 function App() {
-
-  const hello = () => {
-    console.log('Hello World')
-  }
+    const hello = () => {
+        console.log("Hello World");
+    };
 
     return (
         <>
-            <Button hello={hello}/>
+            <Counter />
         </>
     );
 }
 
-function Button (props) {
-  return (
-    <>
-      <button onClick={props.hello}>Click</button>
-    </>
-  )
+function Button(props) {
+    return (
+        <>
+            <button onClick={props.hello}>Click</button>
+        </>
+    );
 }
 
 export default App;
