@@ -4,7 +4,8 @@ export default function Counter () {
   const [counter, setCounter] = useState(0)
 
   const increment = () => {
-    setCounter(counter+1)
+    setCounter(prev => prev + 1)
+    setCounter(prev => prev + 1)
     console.log(counter)
   }
 
