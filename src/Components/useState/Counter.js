@@ -1,27 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-export default function Counter () {
-  const [counter, setCounter] = useState(0)
+function Counter() {
+    const [counter, setCounter] = useState(0);
 
-  const increment = () => {
-    setCounter(prev => prev + 1)
-    setCounter(prev => prev + 1)
-    console.log(counter)
-  }
+    useEffect(() => {
+        console.log("Kode render diawal");
+        return () => {
+            console.log("Component dihilangkan");
+        };
+    }, []);
 
-  const decrement = () => {
-    if(!counter <= 0) {
-      setCounter(counter - 1)
-      console.log(counter)
+    const increment = () => {
+        setCounter((prev) => prev + 1);
+    };
+
+    const decrement = () => {
+        if (!counter <= 0) {
+            setCounter(counter - 1);
+        }
+        return false;
+    };
+
+    return (
+        <div style={{ textAlign: "center" }}>
+            <button onClick={decrement}>Decrement</button>
+            <h1>{counter}</h1>
+            <button onClick={increment}>Increment</button>
+        </div>
+    );
+}
+
+export default function Switch() {
+    const [isVisible, setIsVisible] = useState(true);
+
+    function switchHandler() {
+        setIsVisible(!isVisible);
     }
-    return false
-  }
 
-  return (
-    <div style={{ textAlign:"center" }}>
-      <button onClick={decrement}>Decrement</button>
-      <h1>{counter}</h1>
-      <button onClick={increment}>Increment</button>
-    </div>
-  )
+    return (
+        <>
+            <div style={{ textAlign: "center", marginBottom: "15px" }}>
+                <button onClick={switchHandler}>Visible</button>
+            </div>
+            {isVisible && <Counter />}
+        </>
+    );
 }
